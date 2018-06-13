@@ -60,6 +60,8 @@ const UsersController = {
   * [05] Save session
   */
   authenticate: async (req, res) => {
+    console.log('Authentication');
+
     try {
       /* 01 */
       req.assert('email', 'Email is not valid').isEmail();
