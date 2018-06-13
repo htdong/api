@@ -82,7 +82,7 @@ const UsersController = {
 
       /* 02 */
       let GkClient = await GkClientsController.getModel(req, res);
-      console.log('Pass 02');
+      console.log('Pass 02', GkClient);
 
       let client = await GkClient.find({});
       console.log('Clien %s', client);
