@@ -82,14 +82,14 @@ const UsersController = {
       let client = await GkClient.findById(req.body.token);
 
       if (!client) { return response.fail_notFound(res); }
-      // helperService.log(client);
+      helperService.log(client);
 
       /* 03 */
       let User = await UsersController.getModel(req, res, client['clientDb']);
       let user = await User.findOne({ email: req.body.email});
 
       if (!user) { return response.fail_notFound(res); }
-      // helperService.log(user);
+      helperService.log(user);
 
       /* 04 */
       const keyPassword = bcrypt.compareSync(req.body.password, user['hash']);
@@ -128,7 +128,7 @@ const UsersController = {
           setting:    client.setting,
           tcodes:     encodedTcodes
         }
-        // helperService.log(data);
+        helperService.log(data);
 
         /* 05 */
         // session to be stored for later use at backend server
@@ -150,7 +150,7 @@ const UsersController = {
         }
 
         sessionController.set(req, res);
-        // helperService.log(req['mySession']);
+        helperService.log(req['mySession']);
 
         return res.send(data);
       }
