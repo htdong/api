@@ -38,7 +38,7 @@ var DBConnect = {
     }
     catch (err) {
       err['data'] = 'Error in connecting server and create collection model!';
-      return response.handle_server_error(res, err);
+      return response.fail_serverError(res, err);
     }
   },
 
