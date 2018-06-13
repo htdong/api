@@ -37,7 +37,7 @@ var SessionController = {
 
       const modelName = req.body.token;
 
-      let sessionDb = await mongoose.createConnection(sessionDbUri, { useMongoClient: true, promiseLibrary: require("bluebird") });
+      let sessionDb = await mongoose.createConnection(sessionDbUri, { promiseLibrary: require("bluebird") });
       let Session = sessionDb.model(modelName, SessionSchema);
 
       const sessionContent = req['mySession'];
@@ -99,7 +99,7 @@ var SessionController = {
       const sessionDbUri = process.env.MONGO_SESSION_URI;
       const modelName = req.headers.token;
 
-      var sessionDb = await mongoose.createConnection(sessionDbUri, { useMongoClient: true, promiseLibrary: require("bluebird") });
+      var sessionDb = await mongoose.createConnection(sessionDbUri, { promiseLibrary: require("bluebird") });
       var Session = sessionDb.model(modelName, SessionSchema);
 
       console.log('[Session-02] Check and return session');
@@ -129,7 +129,7 @@ var SessionController = {
       // const sessionDbUri = ConstantsBase.urlSessionDb;
       const sessionDbUri = process.env.MONGO_SESSION_URI;
       const modelName = req.headers.token;
-      let sessionDb = await mongoose.createConnection(sessionDbUri, { useMongoClient: true, promiseLibrary: require("bluebird") });
+      let sessionDb = await mongoose.createConnection(sessionDbUri, { promiseLibrary: require("bluebird") });
       let Session = sessionDb.model(modelName, SessionSchema);
 
       console.log('[Session-02] Check existed session');

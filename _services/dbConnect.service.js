@@ -30,7 +30,7 @@ var DBConnect = {
     try {
       const systemDb = await mongoose.createConnection(
         process.env.MONGO_SYSTEM_URI,
-        { useMongoClient: true, promiseLibrary: require("bluebird") }
+        { promiseLibrary: require("bluebird") }
       );
       return systemDb.model(model, schema);
     }
@@ -54,13 +54,12 @@ var DBConnect = {
   */
   connectMasterDB: async(req, res, model, schema, clientCode) => {
     try {
-      const ConstantsBase = require('../config/base/constants.base');
+      const ConstantsBase = require('../base.constants');
       // const DbUri = ConstantsBase.urlMongo;
       const DbUri = process.env.MONGO_URI;
       const masterDb = await mongoose.createConnection(
         DbUri + clientCode + "_0000",
         {
-          useMongoClient: true,
           promiseLibrary: require("bluebird")
         }
       );
@@ -87,13 +86,12 @@ var DBConnect = {
   */
   connectYearDB: async(req, res, model, schema, clientCode, year) => {
     try {
-      const ConstantsBase = require('../config/base/constants.base');
+      const ConstantsBase = require('../base.constants');
       // const DbUri = ConstantsBase.urlMongo;
       const DbUri = process.env.MONGO_URI;
       const yearDb = await mongoose.createConnection(
         DbUri + clientCode + "_" + year,
         {
-          useMongoClient: true,
           promiseLibrary: require("bluebird")
         }
       );

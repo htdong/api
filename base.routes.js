@@ -21,8 +21,9 @@ const app = express();
 // const RequestComment = require('./modules/requestComments/requestComments.route');
 // const RequestHistory = require('./modules/requestHistories/requestHistories.route');
 //
-// const UsersRoutes = require('./modules/users/users.route');
-// const SessionRoutes = require('./modules/session/session.route');
+const SessionRoutes = require('./_modules/_session/session.route');
+const UsersRoutes = require('./_modules/_users/users.route');
+
 
 /**
 * @description Map second level routes (https:/server/secondRoutes) with module routes
@@ -48,8 +49,8 @@ const routes = function() {
   // app.use("/requestComments", RequestComment);
   // app.use("/requestHistories", RequestHistory);
   //
-  // app.use("/settings", SessionRoutes);
-  // app.use("/users", UsersRoutes);
+  app.use("/settings", SessionRoutes);
+  app.use("/users", UsersRoutes);
 
   // Static files
   app.use(serveStatic(path.join('/Users/donghoang/node/gk')));

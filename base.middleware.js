@@ -37,10 +37,10 @@ const configuration = () => {
 
   app.use(cors({ credentials: true }));
   app.use(function(req, res, next) { //allow cross origin requests
-      res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, OPTIONS, DELETE");
-      res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      res.header("Access-Control-Allow-Credentials", 'true');
+      // res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, OPTIONS, DELETE");
+      // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+      // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      // res.header("Access-Control-Allow-Credentials", 'true');
       next();
   });
 
@@ -75,6 +75,7 @@ const configuration = () => {
     return false;
   }
 
+  // console.log(process.env.JWT_SECRET);
   app.use(expressJwt({ secret: process.env.JWT_SECRET }).unless(myFilter));
 
   app.use((req, res, next) => {
