@@ -61,7 +61,7 @@ const UsersController = {
   */
   authenticate: async (req, res) => {
     console.log('Authentication');
-
+    console.log('Token: %s - Email: %s - Password %s', req.body.token, req.body.email, req.body.password);
     try {
       /* 01 */
       req.assert('email', 'Email is not valid').isEmail();
@@ -78,10 +78,13 @@ const UsersController = {
         }
         return response.done(req, res);
       }
+      console.log('Pass 01');
 
       /* 02 */
       let GkClient = await GkClientsController.getModel(req, res);
       let client = await GkClient.findById(req.body.token);
+
+      console.log('Clien %s', client);
 
       if (!client) { return response.fail_notFound(res); }
       helperService.log(client);

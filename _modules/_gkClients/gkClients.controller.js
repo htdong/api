@@ -1698,21 +1698,8 @@ var GkClientsController = {
   *
   * @return {Mongoose Model} module
   */
-  getModel: async (req, res) => {
+  getModel: async(req, res) => {
     return DBConnect.connectSystemDB(req, res, 'GkClient', GkClientSchema);
-
-    // try {
-    //   const systemDbUri = ConstantsBase.urlSystemDb;
-    //   const systemDb = await mongoose.createConnection(
-    //     systemDbUri,
-    //     { promiseLibrary: require("bluebird")}
-    //   );
-    //   return systemDb.model('GkClient', GkClientSchema);
-    // }
-    // catch (err) {
-    //   err['data'] = 'Error in connecting server and create collection model!';
-    //   return response.fail_serverError(res, err);
-    // }
   },
 
   /**

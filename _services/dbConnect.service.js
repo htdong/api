@@ -28,6 +28,8 @@ var DBConnect = {
   */
   connectSystemDB: async(req, res, model, schema) => {
     try {
+      console.log('MONGO_SYSTEM_URI %s', process.env.MONGO_SYSTEM_URI);
+
       const systemDb = await mongoose.createConnection(
         process.env.MONGO_SYSTEM_URI,
         { promiseLibrary: require("bluebird") }
