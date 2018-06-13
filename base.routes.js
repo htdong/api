@@ -32,10 +32,10 @@ const routes = function() {
 
   // API restful introduction
   let router = express.Router();
-  router.get('/', (req, res, next) => {
+  router.get('/api', (req, res, next) => {
     res.json({ message: 'Hello World. I am the API Restful server for GKSBS!' });
   });
-  app.use('/', router);
+  app.use('/api', router);
 
   // API restful services in Alphabet order
   // app.use("/chat", ChatRoutes);
@@ -49,8 +49,8 @@ const routes = function() {
   // app.use("/requestComments", RequestComment);
   // app.use("/requestHistories", RequestHistory);
   //
-  app.use("/settings", SessionRoutes);
-  app.use("/users", UsersRoutes);
+  app.use("/api/settings", SessionRoutes);
+  app.use("/api/users", UsersRoutes);
 
   // Static files
   app.use(serveStatic(path.join('/Users/donghoang/node/gk')));

@@ -58,10 +58,10 @@ const configuration = () => {
   // POSTMAN Test: Remember to temporarily block below for POSTMAN test
   var myFilter = (req) => {
     const unlessArray = [
-      '/',
-      '/users/authenticate',
-      '/users/register',
-      '/users/forgot'
+      '/api',
+      '/api/users/authenticate',
+      '/api/users/register',
+      '/api/users/forgot'
     ];
     //console.log(unlessArray.indexOf(req.path));
 
