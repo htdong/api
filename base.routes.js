@@ -32,7 +32,7 @@ const routes = function() {
 
   // API restful introduction
   let router = express.Router();
-  router.get('/api', (req, res, next) => {
+  router.get('/', (req, res, next) => {
     res.json({ message: 'Hello World. I am the API Restful server for GKSBS!' });
   });
   app.use('/api', router);
