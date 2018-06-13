@@ -82,11 +82,14 @@ const UsersController = {
 
       /* 02 */
       let GkClient = await GkClientsController.getModel(req, res);
+      let client = await GkClient.find({});
+      console.log('Clien %s', client);
+      
       let client = await GkClient.findById(req.body.token);
 
       console.log('Clien %s', client);
 
-      if (!client) { return response.fail_notFound(res); }
+      // if (!client) { return response.fail_notFound(res); }
       helperService.log(client);
 
       /* 03 */
