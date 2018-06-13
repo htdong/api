@@ -30,10 +30,9 @@ var DBConnect = {
     try {
       console.log('MONGO_SYSTEM_URI %s', process.env.MONGO_SYSTEM_URI);
 
-      const systemDb = await mongoose.createConnection(
-        process.env.MONGO_SYSTEM_URI,
-        { promiseLibrary: require("bluebird") }
-      );
+      const systemDb = await mongoose.createConnection(process.env.MONGO_SYSTEM_URI);
+      ,
+      // { promiseLibrary: require("bluebird") }
       return systemDb.model(model, schema);
     }
     catch (err) {
