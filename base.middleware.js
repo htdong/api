@@ -76,7 +76,7 @@ const configuration = () => {
   }
 
   // console.log(process.env.JWT_SECRET);
-  app.use(expressJwt({ secret: process.env.JWT_SECRET }).unless(myFilter));
+  // app.use(expressJwt({ secret: process.env.JWT_SECRET }).unless(myFilter));
 
   app.use((req, res, next) => {
     let urls = req.path.split("/");
