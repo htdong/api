@@ -66,9 +66,9 @@ const configuration = () => {
     //console.log(unlessArray.indexOf(req.path));
 
     const urls = req.path.split("/");
-    //console.log(urls[1]);
+    console.log(urls[2]);
 
-    if ((unlessArray.indexOf(req.path)!=-1)||(urls[1]=='repo')) {
+    if ((unlessArray.indexOf(req.path)!=-1)||(urls[2]=='repo')) {
       return true;
     }
 
