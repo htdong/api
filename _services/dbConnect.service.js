@@ -31,8 +31,8 @@ var DBConnect = {
       console.log('MONGO_SYSTEM_URI %s', process.env.MONGO_SYSTEM_URI);
 
       const opt = {
-        user: MONGO_USER,
-        pass: MONGO_PASSWORD,
+        user: process.env.MONGO_USER,
+        pass: process.env.MONGO_PASSWORD,
         auth: {
           authdb: 'admin'
         },
