@@ -38,8 +38,13 @@ var DBConnect = {
         },
         promiseLibrary: require("bluebird")
       }
-      const systemDb = await mongoose.createConnection(process.env.MONGO_URI, 'gksbs', opt);
-      // { promiseLibrary: require("bluebird") }
+
+      console.log(opt);
+
+      const systemDb = await mongoose.createConnection(process.env.MONGO_SYSTEM_URI, opt);
+
+      mongoose.set('debug', true);
+
       return systemDb.model(model, schema);
     }
     catch (err) {
