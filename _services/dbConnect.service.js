@@ -30,7 +30,15 @@ var DBConnect = {
     try {
       console.log('MONGO_SYSTEM_URI %s', process.env.MONGO_SYSTEM_URI);
 
-      const systemDb = await mongoose.createConnection(process.env.MONGO_SYSTEM_URI, { poolSize: 4 });
+      const opt = {
+        user: MONGO_USER,
+        pass: MONGO_PASSWORD,
+        auth: {
+          authdb: 'admin'
+        },
+        promiseLibrary: require("bluebird")
+      }
+      const systemDb = await mongoose.createConnection(process.env.MONGO_URI, 'gksbs', opt);
       // { promiseLibrary: require("bluebird") }
       return systemDb.model(model, schema);
     }
