@@ -56,9 +56,7 @@ const configuration = () => {
 
   // EXPRESS-JWT VALIDATION
   // POSTMAN Test: Remember to temporarily block below for POSTMAN test
-  const urls = req.path.split("/");
-  console.log(urls[2]);
-  
+
   var myFilter = (req) => {
     const unlessArray = [
       '/api',
@@ -83,6 +81,7 @@ const configuration = () => {
 
   app.use((req, res, next) => {
     let urls = req.path.split("/");
+    console.log(urls[2]);
 
     console.log(`
 ----------------------------------------------------------------
