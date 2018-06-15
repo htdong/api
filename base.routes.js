@@ -54,7 +54,7 @@ const routes = function() {
 
   // Static files
   // app.use(serveStatic(path.join('/Users/donghoang/node/gk')));
-  app.use(serveStatic(path.join('/var/www/repo')));
+  app.use("/api/repo", serveStatic(path.join('/var/www/repo')));
 
   console.log('__dirname:', __dirname);
 
